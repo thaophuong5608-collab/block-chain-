@@ -1,0 +1,62 @@
+Dưới đây là chi tiết các **bài tập trọng tâm Chương 2: Nền tảng Toán học (Mathematical Preliminaries)** kèm lời giải từng bước dựa trên kiến thức từ giáo trình *The Data Science Design Manual*:
+
+---
+
+### **PHẦN 1: XÁC SUẤT VÀ XÁC SUẤT ĐIỀU KIỆN (PROBABILITY & CONDITIONAL PROBABILITY)**
+
+**Bài 2.1 (Xác suất điều kiện - Peanut Butter & Jelly)**:
+Giả sử có 80% mọi người thích bơ đậu phộng (\\(A\\)), 89% thích mứt jelly (\\(B\\)), và 78% thích cả hai (\\(A \cap B\\)). Hỏi nếu chọn ngẫu nhiên một người thích bơ đậu phộng, xác suất người đó cũng thích mứt jelly \\(P(B|A)\\) là bao nhiêu?
+* **Lời giải**:
+  * Áp dụng công thức xác suất điều kiện: \\(P(B|A) = \frac{P(A \cap B)}{P(A)}\\).
+  * Thay số: \\(P(B|A) = \frac{0.78}{0.80} = 0.975\\) (tương ứng **97.5%**).
+
+**Bài 2.2 (Sự kiện độc lập)**:
+Giả sử \\(P(A) = 0.3\\) và \\(P(B) = 0.7\\). Giả định hai sự kiện \\(A\\) và \\(B\\) phát sinh từ các quá trình ngẫu nhiên độc lập:
+* **a) Tính \\(P(A \text{ and } B)\\)**: Do \\(A\\) và \\(B\\) độc lập nên \\(P(A \cap B) = P(A) \times P(B) = 0.3 \times 0.7 = \mathbf{0.21}\\).
+* **b) Tính \\(P(A \text{ or } B)\\)**: Áp dụng công thức hợp hai sự kiện \\(P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.3 + 0.7 - 0.21 = \mathbf{0.79}\\).
+* **c) Tính \\(P(A|B)\\)**: Do \\(A\\) và \\(B\\) độc lập, việc \\(B\\) xảy ra không cung cấp thêm thông tin về \\(A\\), nên \\(P(A|B) = P(A) = \mathbf{0.3}\\).
+
+---
+
+### **PHẦN 2: THỐNG KÊ MÔ TẢ VÀ ĐỘ BIẾN ĐỘNG (DESCRIPTIVE STATISTICS)**
+
+**Bài 2.6 (So sánh Trung bình \\(\mu\\) và Độ lệch chuẩn \\(\sigma\\))**:
+So sánh giá trị trung bình \\(\mu\\) và độ lệch chuẩn \\(\sigma\\) của hai tập hợp mà không cần tính con số cụ thể:
+* **Cặp (a)**: (i) `3, 5, 5, 5, 8, 11, 11, 11, 13` vs (ii) `3, 5, 5, 5, 8, 11, 11, 11, 20`.
+  * **Lời giải**: Tập (ii) có phần tử cuối lớn hơn (20 so với 13). Do đó, **tập (ii) có trung bình \\(\mu\\) lớn hơn** và **độ lệch chuẩn \\(\sigma\\) lớn hơn** vì giá trị 20 nằm xa trung tâm hơn, làm tăng phương sai tổng thể.
+* **Cặp (c)**: (i) `0, 2, 4, 6, 8, 10` vs (ii) `20, 22, 24, 26, 28, 30`.
+  * **Lời giải**: Tập (ii) được tạo ra bằng cách tịnh tiến cộng 20 vào từng phần tử của tập (i). Do đó, **tập (ii) có trung bình \\(\mu\\) lớn hơn 20 đơn vị**, nhưng **độ lệch chuẩn \\(\sigma\\) bằng nhau** vì độ phân tán tương đối quanh giá trị trung bình không đổi.
+
+**Bài 2.8 & 2.9 (Trung bình số học vs. Trung bình nhân)**:
+So sánh Trung bình số học (Arithmetic Mean) và Trung bình nhân (Geometric Mean) trên tập các số ngẫu nhiên dương.
+* **Lời giải**:
+  * Trung bình nhân \\(\left(\prod_{i=1}^n a_i\right)^{1/n}\\) luôn **nhỏ hơn hoặc bằng** trung bình số học \\(\frac{1}{n}\sum a_i\\) đối với tập số dương (bất đẳng thức AM-GM).
+  * Hai trung bình này **chỉ bằng nhau** khi và chỉ khi tất cả các phần tử trong tập dữ liệu đều bằng nhau (\\(a_1 = a_2 = \dots = a_n\\)).
+
+---
+
+### **PHẦN 3: PHÂN TÍCH TƯƠNG QUAN (CORRELATION ANALYSIS)**
+
+**Bài 2.10 (Mức độ mạnh của hệ số tương quan)**:
+Phát biểu Đúng hay Sai: "Hệ số tương quan \\(r = -0.9\\) thể hiện mối quan hệ tuyến tính mạnh hơn hệ số tương quan \\(r = 0.5\\)"?
+* **Lời giải**: **ĐÚNG**. Độ mạnh của mối quan hệ tuyến tính phụ thuộc vào giá trị tuyệt đối \\(|r|\\) (và hệ số xác định \\(R^2 = r^2\\)). Do \\(|-0.9| = 0.9 > 0.5\\), mức độ tương quan nghịch \\(r = -0.9\\) có sức mạnh dự báo cao hơn nhiều so với \\(r = 0.5\\) (\\(R^2 = 0.81\\) giải thích 81% phương sai so với \\(R^2 = 0.25\\) giải thích 25%).
+
+**Bài 2.11 (Ảnh hưởng của phép biến đổi tuyến tính lên \\(r\\))**:
+Xác định hệ số tương quan giữa mức lương của người có bằng đại học (\\(X\\)) và bằng trung học (\\(Y\\)) khi:
+* **a) Mọi bằng đại học đều cao hơn bằng trung học 5,000 USD (\\(Y = X + 5000\\))**: \\(r = \mathbf{1.0}\\) vì đây là phép tịnh tiến tuyến tính.
+* **b) Mọi bằng đại học đều cao hơn bằng trung học 25% (\\(Y = 1.25 X\\))**: \\(r = \mathbf{1.0}\\) vì đây là biến đổi tỉ lệ thuận tuyến tính hoàn hảo.
+
+---
+
+### **PHẦN 4: PHÉP BIẾN ĐỔI LOGARITHM (LOGARITHMIC TRANSFORMATIONS)**
+
+**Bài 2.17 (Tối ưu phép nhân chuỗi xác suất)**:
+Chứng minh công thức biến đổi tích số thành tổng Logarithm: \\(x \cdot y = b^{(\log_b x + \log_b y)}\\).
+* **Lời giải**:
+  * Theo định nghĩa logarithm: \\(x = b^{\log_b x}\\) và \\(y = b^{\log_b y}\\).
+  * Nhân hai vế: \\(x \cdot y = b^{\log_b x} \cdot b^{\log_b y} = b^{(\log_b x + \log_b y)}\\).
+  * **Ứng dụng thực tế**: Khi nhân chuỗi dài các xác suất nhỏ \\(\prod p_i\\), máy tính sẽ gặp lỗi tràn số dưới (underflow). Chuyển sang tính tổng logarithm \\(\sum \log(p_i)\\) giúp duy trì tính ổn định số học cực kỳ tốt.
+
+---
+
+💡 *Bạn có muốn luyện tập thêm bài tập về phân biệt giữa tương quan tuyến tính **Pearson** và tương quan thứ tự **Spearman Rank** khi xuất hiện điểm ngoại lệ (outliers) không?*
